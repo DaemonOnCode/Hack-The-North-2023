@@ -1,6 +1,6 @@
 from rest_framework.routers import SimpleRouter
 
-from accounts.api.views import CandidateProfileViewSet, RecruiterProfileSerializer, RecruiterProfileViewSet
+from accounts.api.views import CandidateProfileViewSet, RecruiterProfileViewSet
 
 router = SimpleRouter()
 

@@ -19,7 +19,14 @@ class CompanySerializer(ModelSerializer):
         fields = ("id", "name", "blockchain_wallet_id",)
 
 
+class UserSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("id", "first_name", "last_name", "email",)
+
+
 class CandidateProfileSerializer(ModelSerializer):
+    id = serializers.IntegerField(source="user.id", read_only=True)
     first_name = serializers.CharField(max_length=150, source="user.first_name", required=True)
     last_name = serializers.CharField(max_length=150, source="user.last_name", required=False, default="")
     email = serializers.EmailField(source="user.email", required=True)
@@ -49,6 +56,7 @@ class CandidateProfileSerializer(ModelSerializer):
 
 
 class RecruiterProfileSerializer(ModelSerializer):
+    id = serializers.IntegerField(source="user.id", read_only=True)
     first_name = serializers.CharField(source="user.first_name", required=True, max_length=150)
     last_name = serializers.CharField(source="user.last_name", required=False, max_length=150, default="")
     email = serializers.CharField(source="user.email", required=True)
