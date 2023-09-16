@@ -111,15 +111,6 @@ app.post(
     }
 );
 
-// app.post("/deploy-contract", async (res) => {
-//   if (!contract) {
-//     contract = await loadFixture(deployContract);
-//   }
-//   Contract = await ethers.getContractFactory("Test");
-//   const response = await Contract.deploy();
-//   res.json({ message: response });
-// });
-
 app.listen(port, async () => {
     instance = await Test.at(contractAddress);
     console.log(`⚡️[server]: Server is running at http://localhost:${port}`);

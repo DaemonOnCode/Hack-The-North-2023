@@ -74,18 +74,6 @@ contract Test {
         candidates[candidateAddress].candidateData[companyAddress].companyDetails[currentIdx].fired = fired;
     }
 
-    // function getCandidateData(address candidateAddress) external view returns (CompanyDetails[][] memory, Review[] memory) {
-    //     CompanyDetails[][] memory candidateData = new CompanyDetails[][](candidates[candidateAddress].length);
-    //     for(uint i=0; i<candidates[candidateAddress].length; i++) {
-    //         candidateData[i] = candidates[candidateAddress].candidateData[].companyDetails;
-    //     }
-    //     Review[] memory candidateReviews = new Review[](totalReviews);
-    //     for(uint i=0; i<totalReviews; i++) {
-    //         candidateReviews[i] = reviews[i];
-    //     }
-    //     return (candidateData, candidateReviews);
-    // }
-
     function getCandidateDataByCompany(address candidateAddress, address companyAddress) external view returns (CompanyDetails[] memory, Review[] memory) {
         checkAddresses(candidateAddress, companyAddress);
         Review[] memory candidateReviews = new Review[](totalReviews);
