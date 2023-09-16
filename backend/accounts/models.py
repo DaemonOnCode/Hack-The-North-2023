@@ -31,7 +31,7 @@ class UserProfile(TimeStampedModel):
         (USER_TYPE_CANDIDATE, "Candidate"),
         (USER_TYPE_RECRUITER, "Recruiter")
     )
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     user_type = models.CharField(choices=USER_TYPE_CHOICES, max_length=10)
     blockchain_wallet_id = models.CharField(null=True, blank=True, max_length=64, unique=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)
