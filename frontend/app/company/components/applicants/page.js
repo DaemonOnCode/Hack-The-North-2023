@@ -1,6 +1,6 @@
 "use client"
 import Navbar from '../Navbar';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Link from 'next/link';
 import { UserContext } from '../../../context/userContext';
 import SearchBar from '../searchbar';
