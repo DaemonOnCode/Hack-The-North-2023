@@ -35,6 +35,7 @@ class JobApplications(TimeStampedModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(choices=STATUS_CHOICES, default=PENDING_REVIEW, max_length=16)
     resume = models.FileField()
+    resume_transcript = models.TextField()
 
     class Meta:
         unique_together = (('job', 'user',),)

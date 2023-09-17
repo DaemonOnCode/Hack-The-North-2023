@@ -1,5 +1,8 @@
+from django.shortcuts import get_object_or_404
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, ListModelMixin
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet
 
 from accounts.api.permissions import IsRecruiter, IsCandidate
@@ -40,3 +43,13 @@ class JobApplicationsViewSet(CreateModelMixin, RetrieveModelMixin, ListModelMixi
             return self.queryset.filter(job__company=user_profile.company)
         else:
             return self.queryset.filter(user=request_user)
+
+
+class ResumeOCRWebhook(APIView):
+    def post(self, request, *args, **kwargs):
+        application_id = request.data['job_application_id']
+        text = request.data['text']
+        job_application = get_object_or_404(JobApplications, id=application_id)
+        job_application.resume_transcript = text
+        job_application.save()
+        return Response()
