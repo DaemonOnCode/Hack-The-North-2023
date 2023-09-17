@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-)7b5rs(vab4!(ar9*(9nv&*b4sd2i^ii-3hk_tk(h-h=-dl)rb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["api.onehirehub.tech"]
+ALLOWED_HOSTS = ["api.onehirehub.tech", "localhost"]
 
 # Application definition
 
