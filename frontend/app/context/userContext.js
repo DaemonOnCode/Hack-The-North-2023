@@ -7,6 +7,6 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
   const value = { user, setUser };
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
