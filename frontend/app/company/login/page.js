@@ -4,7 +4,6 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { useRouter } from 'next/navigation'
 import axios from 'axios';
-import { serialize } from 'cookie';
 
 export default function Login () {
 

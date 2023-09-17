@@ -2,22 +2,48 @@
 import Navbar from '../Navbar';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import axios from 'axios';
+
 
 export default function Applicants () {
-  const [applicants, setApplicants] = useState(null);
-  const searchParams = useSearchParams()
-  const id = searchParams.get('id')
-  
-  const callAPI = async () => {
-    const response = await axios.get('https://9d780f6f-8fe3-4416-9c81-a14f9916ef8c.mock.pstmn.io/api/v1/jobs/applications/' + id);
-    console.log(response.data);
-    setApplicants(response.data);
-  }
+  const [applicants, setApplicants] = useState([]);
 
   useEffect(() => {
-    callAPI();
+    // Fetch user data from API
+    // For demonstration purposes, I'll use a dummy user object
+
+    const dummyApplicants = [
+        {
+          name: 'John Doe',
+          school: 'University of Toronto',
+          applicantInfoURL: '/company/components/applicantInfo',
+          verifyURL: '/company/components/verify',
+          hireURL: '/company/components/hire',
+        },
+        {
+            name: 'Alice Smith',
+            school: 'University of Michigan',
+            applicantInfoURL: '/company/components/applicantInfo',
+            verifyURL: '/company/components/verify',
+            hireURL: '/company/components/hire',
+        },
+        {
+            name: 'Adam Johnson',
+            school: 'University of Waterloo',
+          applicantInfoURL: '/company/components/applicantInfo',
+          verifyURL: '/company/components/verify',
+          hireURL: '/company/components/hire',
+          },
+          {
+            name: 'Lucas Williams',
+          school: 'University of British Columbia',
+          applicantInfoURL: '/company/components/applicantInfo',
+          verifyURL: '/company/components/verify',
+          hireURL: '/company/components/hire',
+          },
+        // Add more applicants as needed
+      ];
+
+    setApplicants(dummyApplicants);
   }, []);
 
   return (
@@ -33,9 +59,9 @@ export default function Applicants () {
             >
             <div className='relative flex items-center justify-center h-auto bg-gray-200 rounded-xl p-7 group'>
                 <div className=''>
-                    <h3 className='text-2xl text-center'>{applicant.user.first_name}</h3>
+                    <h3 className='text-2xl text-center'>{applicant.name}</h3>
                     <br />
-                    <p className='pt-2 text-center'>{applicant.user.last_name}</p>
+                    <p className='pt-2 text-center'>{applicant.school}</p>
                     <div className='w-70 grid grid-cols-3'>
                         <Link href={applicant.applicantInfoURL}>
                             <p className='mt-10 mx-20 text-center bg-violet-400 py-3 rounded-lg text-gray-700 font-bold txt-lg cursor-pointer hover:violet'>Applicant Info</p>

@@ -2,21 +2,25 @@
 import Navbar from '../Navbar';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useSearchParams } from 'next/navigation';
 
 export default function JobInfo () {
-  const [jobInfo, setJobInfo] = useState(null);
-  const searchParams = useSearchParams()
-  const id = searchParams.get('id')
-  
-  const callAPI = async () => {
-    const response = await axios.get('https://9d780f6f-8fe3-4416-9c81-a14f9916ef8c.mock.pstmn.io/api/v1/jobs/' + id);
-    console.log(response.data);
-    setJobInfo(response.data);
-  }
+  const [jobInfo, setjobInfo] = useState(null);
 
   useEffect(() => {
-    callAPI();
+    // Fetch user data from API
+    // For demonstration purposes, I'll use a dummy user object
+
+    const dummyJobInfo = 
+      {
+        title: 'Software Engineer',
+        location: 'Toronto, ON',
+        yearsOfExperience: '3',
+        description: 'We are looking for a software engineer to join our team.',
+      }
+      // Add more job items as needed
+    ;
+
+    setjobInfo(dummyJobInfo);
   }, []);
 
   return (
@@ -28,6 +32,8 @@ export default function JobInfo () {
         <div className='relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-40 group'>
             <div className=' absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] '>
             <p><strong>Title:</strong> {jobInfo.title}</p>
+             <p><strong>Location:</strong> {jobInfo.location}</p>
+             <p><strong>Years of Experience:</strong> {jobInfo.yearsOfExperience}</p>
              <p><strong>Description:</strong> {jobInfo.description}</p>
             </div>
         </div>
