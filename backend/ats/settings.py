@@ -26,6 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["api.onehirehub.tech", "localhost"]
 
+STATIC_ROOT = "/home/ubuntu/static/"
 # Application definition
 
 INSTALLED_APPS = [
