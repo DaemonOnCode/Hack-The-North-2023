@@ -15,11 +15,10 @@ export default function Jobs() {
     const response = await axios.get('https://api.onehirehub.tech/v1/jobs', { "headers": headers });
     setJobs(response.data);
   }
-
   useEffect(() => {
     callAPI();
   }, []);
-
+  
   return (
     <main>
       <Navbar></Navbar>

@@ -1,13 +1,13 @@
 "use client"
 import Navbar from '../Navbar';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 export default function ApplicantInfo() {
   const [applicant, setApplicant] = useState(null);
 
-  useEffect(() => {
-    // Fetch user data from API
-    // For demonstration purposes, I'll use a dummy user object
+    useEffect(() => {
+        // Fetch user data from API
+        // For demonstration purposes, I'll use a dummy user object
 
     const dummyApplicant =
     {
@@ -18,8 +18,8 @@ export default function ApplicantInfo() {
       // Add more job items as needed
       ;
 
-    setApplicant(dummyApplicant);
-  }, []);
+        setApplicant(dummyApplicant);
+    }, []);
 
   return (
     <main>
