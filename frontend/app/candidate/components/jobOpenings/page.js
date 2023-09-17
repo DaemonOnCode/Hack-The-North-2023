@@ -1,39 +1,20 @@
 "use client"
 import Navbar from '../Navbar';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import ApplyJobItem from '../ApplyJobItem';
 
 export default function JobOpenings () {
-  const [jobOpenings, setJobOpenings] = useState([]);
+  const [jobOpenings, setJobOpenings] = useState(null);
+  
+  const callAPI = async () => {
+    const response = await axios.get('https://9d780f6f-8fe3-4416-9c81-a14f9916ef8c.mock.pstmn.io/api/v1/jobs');
+    console.log(response.data);
+    setJobOpenings(response.data);
+  }
 
   useEffect(() => {
-    // Fetch user data from API
-    // For demonstration purposes, I'll use a dummy user object
-    const dummyJobOpenings = [
-        {
-          title: 'Software Engineer',
-          location: 'Toronto, ON',
-          applyJobURL: '/candidate/components/applyJob',
-        },
-        {
-          title: 'Data Analyst',
-          location: 'Toronto, ON',
-          applyJobURL: '/candidate/components/applyJob',
-        },
-        {
-            title: 'Data Scientist',
-            location: 'Toronto, ON',
-            applyJobURL: '/candidate/components/applyJob',
-          },
-          {
-            title: 'Designer',
-            location: 'Toronto, ON',
-            applyJobURL: '/candidate/components/applyJob',
-          },
-        // Add more job items as needed
-      ];
-
-      setJobOpenings(dummyJobOpenings);
+    callAPI();
   }, []);
 
   return (
@@ -47,7 +28,7 @@ export default function JobOpenings () {
             <div
                 key={index}
             >
-            <ApplyJobItem title={jobOpening.title} applyJobURL={jobOpening.applyJobURL} location = {jobOpening.location}></ApplyJobItem>
+            <ApplyJobItem {...jobOpening}></ApplyJobItem>
             </div>
             ))}
         </div>

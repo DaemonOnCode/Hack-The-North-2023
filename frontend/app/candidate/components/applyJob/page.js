@@ -32,7 +32,7 @@ const JobApplicationForm = () => {
 
     <JobInfo></JobInfo>
 
-    <form onSubmit={handleSubmit} className='px-40 py-10'>
+    <form onSubmit={handleSubmit} className='mx-28 py-9'>
       <div className="mb-4">
         <label htmlFor="resume" className="block text-sm font-medium text-gray-700">
           Resume
@@ -48,7 +48,7 @@ const JobApplicationForm = () => {
       <div className="mt-4">
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="px-5 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
           Submit Application
         </button>
