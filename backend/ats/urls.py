@@ -23,4 +23,5 @@ urlpatterns = [
     path('v1/employees/', include(("employees.api.urls", "employees"), namespace="employees")),
     path('v1/jobs/', include(("jobs.api.urls", "jobs"), namespace="jobs")),
     path('v1/ledger/', include(("ledger.api.urls", "ledger"), namespace="ledger")),
+    path('v1/ner/', include(("ner.api.urls", "ner"), namespace="ner")),
 ]
