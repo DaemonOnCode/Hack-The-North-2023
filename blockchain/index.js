@@ -12,9 +12,9 @@ const contract = require("@truffle/contract");
 
 const Test = contract(contractArtifact);
 Test.setProvider(provider);
-Test.defaults({ from: "0x2be6d7deb1963b2c4c55e2a225ea3672ac6143f3" }); // ! To be changed -> "npx truffle develop" to start server and get address -> replace with public key(ex:0x2be6d7deb1963b2c4c55e2a225ea3672ac6143f3)
+Test.defaults({ from: "0x6d7bb43dd88204f3e8778631b3ecf76397939a53" }); // ! To be changed -> "npx truffle develop" to start server and get address -> replace with public key(ex:0x2be6d7deb1963b2c4c55e2a225ea3672ac6143f3)
 
-const contractAddress = '0x6E3330F9d5dfdaD8B4e4d52fA963CAdd33a15E28'; // ! To be changed -> "npx truffle develop" to start server and then type "migrate" to get contract address -> replace with address(ex:0x6E3330F9d5dfdaD8B4e4d52fA963CAdd33a15E28)
+const contractAddress = '0x7782Bb7bf8337C07E2F29a6FA176783b9747D9bC'; // ! To be changed -> "npx truffle develop" to start server and then type "migrate" to get contract address -> replace with address(ex:0x6E3330F9d5dfdaD8B4e4d52fA963CAdd33a15E28)
 let instance = null
 
 
