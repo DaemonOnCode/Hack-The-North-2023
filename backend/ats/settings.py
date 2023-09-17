@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "accounts",
     "employees",
     "jobs",
-    "ledger"
+    "ledger",
+    "ner"
 ]
 
 MIDDLEWARE = [
@@ -156,3 +157,4 @@ LOGGING = {
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+
