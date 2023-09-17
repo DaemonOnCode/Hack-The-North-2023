@@ -20,7 +20,7 @@ class EmployeeReviews(TimeStampedModel):
 class EmployeeDetails(TimeStampedModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-    hired_on = models.DateTimeField(null=True, blank=True)
+    hired_on = models.DateTimeField(auto_now=True)
     discharged_on = models.DateTimeField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
