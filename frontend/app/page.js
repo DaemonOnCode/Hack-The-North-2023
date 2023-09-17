@@ -7,7 +7,7 @@ export default function Home() {
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:mb-0 lg:grid-cols-2 lg:text-left p-40">
         <a
-          href="/login"
+          href="/company/login"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
@@ -22,7 +22,7 @@ export default function Home() {
         </a>
 
         <a
-          href="/login"
+          href="/candidate/login"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>

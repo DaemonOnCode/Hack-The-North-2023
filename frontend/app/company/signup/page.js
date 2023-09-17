@@ -1,9 +1,13 @@
 "use client"
-import { useState } from 'react';
-import Link from "next/link";
+import { useContext, useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation'
+import { UserContext } from '../../context/UserContext';
+
 
 export default function Signup() {
 
+  const router = useRouter()
     // States for registration
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -11,6 +15,7 @@ export default function Signup() {
     const [companyBlockchainWalletId, setCompanyBlockchainWalletId] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const usercontext = useContext(UserContext);
 
 
     // States for checking the errors
@@ -47,31 +52,37 @@ export default function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        try {
-            const response = await fetch('https://1a305f54-91aa-4b02-9176-457b54a2711e.mock.pstmn.io/api/v1/accounts/recruiters/', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ firstName, lastName, email, password, companyName, companyBlockchainWalletId }),
-            });
-      
-            if (response.ok) {
-              // Signup was successful, you can redirect the user or show a success message
-              console.log('Signup successful');
-            } else {
-              // Handle signup errors
-              console.error('Signup failed');
-              console.log(response.json())
-            }
-          } catch (error) {
-            console.log('An error occurred', error);
+      try {
+        const response = await axios.post('https://9d780f6f-8fe3-4416-9c81-a14f9916ef8c.mock.pstmn.io/api/v1/accounts/recruiters/signup/', {
+          firstName,
+          lastName,
+          email,
+          password,
+          companyName,
+          companyBlockchainWalletId,
+        });
+
+          if (response.status === 201) {
+            // Signup was successful, you can redirect the user or show a success message
+            console.log('Signup successful');
+
+            usercontext.setUser(response.data)
+
+            
+            router.push("/company/components/profile")
+
+          } else {
+            // Handle signup errors
+            console.error('Signup failed');
           }
+        } catch (error) {
+          console.log('An error occurred', error);
+        }
 
     };
 
     return (
-    <form onClick={handleSubmit}>
+    <form>
       <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 bg-white rounded-md shadow-md lg:max-w-xl">
         <h1 className="text-3xl font-bold text-center text-gray-700">Sign Up Page</h1>
@@ -149,7 +160,7 @@ export default function Signup() {
           </div>
 
           <div className="mt-2">
-            <button type="submit"
+            <button type="submit" onClick={handleSubmit}
             className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-violet-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Sign Up
             </button>
