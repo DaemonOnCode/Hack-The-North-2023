@@ -11,7 +11,7 @@ export default function Applicants() {
   const [filters, setFilters] = useState([]);
 
   const userContext = useContext(UserContext);
-  const headers = { "Authorization": "Token " + userContext.user.auth_token };
+  const headers = { "Authorization": "Token " + userContext?.user?.auth_token };
 
   const callAPI = async () => {
     const [applicantResponse, filterResponse] = await Promise.allSettled(axios.get('https://api.onehirehub.tech/v1/jobs', { "headers": headers }), axios.get('https://api.onehirehub.tech/v1/filters', { "headers": headers }));
