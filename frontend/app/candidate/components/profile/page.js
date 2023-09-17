@@ -1,7 +1,7 @@
 "use client"
 import Navbar from '../Navbar';
 import React, {useContext } from 'react';
-import { UserContext } from '../../../context/UserContext';
+import { UserContext } from '@/app/context/UserContext';
 
 export default function Profile () {
   const usercontext = useContext(UserContext);

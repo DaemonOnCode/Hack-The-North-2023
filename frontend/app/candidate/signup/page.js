@@ -2,7 +2,7 @@
 import { useContext, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation'
-import { UserContext } from '../../context/UserContext';
+import { UserContext } from '@/app/context/UserContext';
 
 export default function Signup() {
 
