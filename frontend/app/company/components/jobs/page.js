@@ -10,6 +10,7 @@ export default function Jobs() {
 
   const userContext = useContext(UserContext);
 
+
   const callAPI = async () => {
     let headers = { "Authorization": "Token " + userContext.user.auth_token };
     const response = await axios.get('https://api.onehirehub.tech/v1/jobs', { "headers": headers });
