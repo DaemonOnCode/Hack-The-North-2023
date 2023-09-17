@@ -14,22 +14,22 @@ export default function HiredApplicants () {
         {
           name: 'John Doe',
           school: 'University of Toronto',
-          hiredApplicantInfoURL: '/company/components/applicantInfo',
+          hiredApplicantInfoURL: '/company/components/hiredApplicantInfo',
         },
         {
             name: 'Alice Smith',
             school: 'University of Michigan',
-            hiredApplicantInfoURL: '/company/components/applicantInfo',
+            hiredApplicantInfoURL: '/company/components/hiredApplicantInfo',
         },
         {
             name: 'Adam Johnson',
             school: 'University of Waterloo',
-            hiredApplicantInfoURL: '/company/components/applicantInfo',
+            hiredApplicantInfoURL: '/company/components/hiredApplicantInfo',
           },
           {
             name: 'Lucas Williams',
           school: 'University of British Columbia',
-          hiredApplicantInfoURL: '/company/components/applicantInfo',
+          hiredApplicantInfoURL: '/company/components/hiredApplicantInfo',
           },
         // Add more applicants as needed
       ];
